@@ -1,0 +1,256 @@
+﻿html{
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+body {
+    position:relative;
+    margin:auto;
+    width:100%;
+    font-family:Arial,Microsoft YaHei,黑体,宋体,sans-serif;
+    padding-bottom:50px;
+    padding-top:50px;
+    
+}
+
+.nav-top{
+    width:100%;
+    position:fixed;
+    top:0;
+    background-color:#ff0000;
+    height:50px;
+    margin:0;
+    padding:0;
+    border:0;
+    vertical-align:baseline;
+    z-index:20;
+}
+
+.nav-top-1{
+    position:relative;
+    float:left;
+    width:20%;
+    padding:0;
+    margin:0;
+    border:0;
+    text-align:center;
+}
+.nav-top-1 p{
+    display:inline-block;
+    margin:10px auto;
+    font-size:22px;
+    color:#ffffff;
+}
+.nav-top-2{
+    position:relative;
+    float:left;
+    width:60%;
+    padding:0;
+    margin:0;
+    border:0;
+    text-align:center;
+}
+.nav-top-2 input{
+    margin:8px auto;
+    border-radius:30px;
+}
+
+.nav-top-3{
+    position:relative;
+    float:left;
+    width:20%;
+    padding:0;
+    margin:0;
+    border:0;
+    text-align:center;
+}
+.nav-top-3 img{
+    display:block;
+    width:23px;
+    margin:12px 20px auto;
+}
+
+.swiper-container{
+    position:relative;
+    height:150px;
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+.swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #e8e8e8;
+        padding:0;
+        margin:0;
+        border:0;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+}
+.swiper-slide img{
+    height:150px;
+}
+
+.swiper-pagination-bullet-active{
+    background:#ff0000;
+}
+
+.introduce{
+    height:50px;
+    margin:5px 0px 5px 0px;
+    padding:0;
+    border:0;
+    background-color:#ffffff;
+}
+
+.introduce-item{
+    padding:0;
+    border:0;
+    margin:0px auto;
+    width:150px;
+}
+.introduce-item img{
+    display:inline-block;
+    position:relative;
+    float:left;
+    border-radius:50px;
+}
+.introduce-item p{
+    display:block;
+    position:relative;
+    float:left;
+    margin:9px auto;
+    padding:0;
+    border:0;
+    color:#ff0000;
+    font-size:14px;
+}
+
+.recommend-box img{
+    display:block;
+    width:100%;
+}
+
+.buy-bar{
+    position:relative;
+    float:right;
+}
+
+.buy-add{
+     float:right;
+     width:20px;
+     margin:5px 15px 0px 5px;
+}
+.buy-num{
+     float:right;
+     width:50px;
+     margin:0px 5px 0px 5px;
+}
+.buy-num input{
+    background-color:#e8e8e8;
+    border:1px;
+    border-color:#ff0000;
+}
+.buy-minus{
+    margin-top:5px;
+     float:right;
+     width:20px;
+     margin-right:10px;
+}
+
+.nav-bottom{
+    background-color:#f8f8f8;
+    width:100%;
+    height:50px;
+    margin:0;
+    padding:0;
+    border:0;
+    vertical-align:baseline;
+    line-height:90%;
+    position:fixed;
+    bottom:0;
+    z-index:20;
+}
+
+.nav-item{
+    padding:0;
+    height:50px;
+}
+
+.nav-bottom img{
+    margin:0px auto;
+    display:block;
+    max-height:25px;
+}
+
+.nav-item-up{
+    margin-top:5px;
+    position:relative;
+    width:100%;
+    height:30px;
+}
+.nav-item-bottom{
+    position:relative;
+    width:100%;
+    height:20px;
+    font-size:12px;
+    text-align:center;
+    vertical-align:central;
+}
+
+.nav-bottom-active img{
+    position:relative;
+    left:-25px;
+    -webkit-filter:drop-shadow(#ff0000 25px 0 );
+    border-right: 25px solid transparent;
+    filter:drop-shadow(25px 0 #ff0000);
+}
+.nav-bottom-active a{
+    overflow:hidden;
+    display:inline-block;
+    width:25px;
+}
+
+.nav-bottom-active{
+    color:#ff0000;
+}
+
+.recommend-content{
+    z-index:1;
+    width:100%;
+    position:relative;
+    min-height:20px;
+    overflow:hidden;
+}
+
+.recommend-introduce{
+    overflow:hidden;
+    position:relative;
+    min-height:10px;
+    width:100%;
+}
+
+.price{
+    overflow:hidden;
+    position:relative;
+    width:100%;
+    min-height:10px;
+}
+
+a:hover{
+    color:#ff0000 !important;
+    text-decoration:none !important;
+} 
+
