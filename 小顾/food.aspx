@@ -33,10 +33,10 @@
         <div data-role="panel" data-display="push" id="classify" data-position="right">
             <ul id="classify-ul" data-role="listview">
                 <li id="classify-choose"><a>选择菜式</a></li>
-                <asp:Repeater runat="server" ID="rptType">
+                <asp:Repeater runat="server" ID="rptType" OnItemCommand="rptType_ItemCommand">
                     <HeaderTemplate><table></HeaderTemplate>
                     <ItemTemplate>
-                        <li><asp:LinkButton runat="server" CommandArgument="type" CommandName="type"><%#Eval("name") %><a runat="server" data-rel="close"></a></asp:LinkButton></li>
+                        <li><asp:LinkButton runat="server" CommandArgument='<%#Eval("id") %>' CommandName="type" CssClass="asp-a"><%#Eval("name") %></asp:LinkButton></li>
                     </ItemTemplate>
                     <FooterTemplate></table></FooterTemplate>
                 </asp:Repeater>
@@ -46,164 +46,28 @@
         <div class="row clearfix">
             <div class="col-xs-12 column">
                 <div class="row">
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
+                  
+                      <asp:Repeater runat="server" ID="rptFood">
+                        <HeaderTemplate><table></HeaderTemplate>
+                        <ItemTemplate>
+                            <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
+                                <div class="thumbnail">
+                                    <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
+                                        <img src="upload/foodPicture/<%#Eval("picture") %>" alt="recommend" />
+                                        <div class="caption">
+                                            <p><%#Eval("name") %></p>
+                                            <p>
+                                                <span>￥<%#Eval("price") %></span></p>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
-                        <div class="thumbnail">
-                            <a href="#recommend1" data-rel="popup" data-position-to="window" data-transition="fade">
-                                <img src="img/recommend.jpg" alt="recommend" />
-                                <div class="caption">
-                                    <p>描述</p>
-                                    <p>
-                                        <span>￥</span>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                            </div>
+                        </ItemTemplate>
+                        <FooterTemplate></table></FooterTemplate>
+                    </asp:Repeater>
+
                     <div data-role="popup" id="recommend1" data-overlay-theme="d" data-theme="d" data-corners="false">
-                        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+                        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close-delete ui-btn-icon-notext ui-btn-right">Close</a>
                         <img class="popphoto" src="img/recommend.jpg" style="max-height: 512px;" />
                         <div class="caption">
                             <p>描述</p>

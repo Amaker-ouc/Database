@@ -39,7 +39,7 @@
           </FooterTemplate>
       </asp:Repeater>
 
-
+      
 <script type="text/javascript">
     function del() {
         if (!confirm("确认要删除？")) {
