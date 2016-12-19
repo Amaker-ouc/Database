@@ -39,15 +39,28 @@ $(document).on("pagecreate", "#page-default", function () {
         "color":"red !important"
     })
     $(document).on("click", "div.thumbnail a", function () {
+        var id_hide = $(this).find("span.id_hide").text();
         var imgsrc = $(this).find("img").attr("src");
         var discribe = $(this).find("div.caption p.discribe").text();
         $("img.popphoto").attr("src", imgsrc);
         $("#recommend p.discribe").text(discribe);
+        $("#recommend span.id_hide").text(id_hide);
+        $(".id_hide").hide();
     })
 })
 $(document).on("pagecreate", "#page-food", function () {
     $(".nav-top a").removeClass("ui-btn uibtn-up-d ui-btn-inline")
     $(".nav-top div.ui-input-search").removeClass("ui-shadow-inset ui-input-has-clear ")
+    $(".ui-popup").removeClass("ui-overlay-shadow")
+    $(document).on("click", "div.thumbnail a", function () {
+        var id_hide = $(this).find("span.id_hide").text();
+        var imgsrc = $(this).find("img").attr("src");
+        var discribe = $(this).find("div.caption p.discribe").text();
+        $("img.popphoto").attr("src", imgsrc);
+        $("#recommend p.discribe").text(discribe);
+        $("#recommend span.id_hide").text(id_hide);
+        $(".id_hide").hide();
+    })
 })
 $(document).on("pagecreate", "#page-order", function () {
     $(".nav-top a").removeClass("ui-btn uibtn-up-d ui-btn-inline")
