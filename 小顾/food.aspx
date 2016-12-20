@@ -90,7 +90,6 @@
                                         <input type="text" readonly="true" runat="server" id="txtFoodNum" value="1" />
                                     </div>
                                     <div class="buy-minus">
-
                                         <a  id="lbtMinus" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all" ></a>
                                     </div>
                                 </div>

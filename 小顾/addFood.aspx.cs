@@ -17,6 +17,8 @@ public partial class addFood : System.Web.UI.Page
         order.Num = 1;
         order.Price = Convert.ToDouble(datasource.Rows[0]["price"]);
         order.Name = datasource.Rows[0]["name"].ToString();
+        order.Pic = datasource.Rows[0]["picture"].ToString();
+        order.Type_id = datasource.Rows[0]["food_type_id"].ToString();
         List<Order> orders = (List<Order>)Session["orders"];
         for (int i = 0; i < orders.Count; i++)
         {

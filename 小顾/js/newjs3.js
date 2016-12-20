@@ -210,6 +210,7 @@ $(document).on("pagecreate", "#page-food", function () {
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send("foodId=" + foodId);
     })
+
 })
 $(document).on("pagecreate", "#page-order", function () {
     $(".nav-top a").removeClass("ui-btn uibtn-up-d ui-btn-inline")
@@ -259,8 +260,64 @@ $(document).on("pagecreate", "#page-order", function () {
             $("#confirm #yes").off();
         });
     }
-});
 
-function foodNum(){
-    
-}
+    $(document).on("click", "a.ui-icon-plus", function () {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var data = xmlhttp.responseText;
+                var str = data.split("|");
+                //var num = data.find("num").text;
+                //var price = data.find("price").text;
+                $(xmlhttp.this).parent().find("input.foodnum").val(str[0]);
+                $(xmlhttp.this).parent().parent().find("span.price").text(str[1]);
+                var unitPrice = parseFloat(str[1]) / parseFloat(str[0]);
+                var frontPrice = parseFloat($("#sumPrice").text());
+                $("#sumPrice").text((unitPrice + frontPrice).toString());
+            }
+        }
+        var foodId = $(this).parent().find("span.id_hide").text();
+        xmlhttp.this = this;
+        xmlhttp.open("POST", "addFood.aspx", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("foodId=" + foodId);
+    })
+
+    $(document).on("click", "a.ui-icon-minus", function () {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var data = xmlhttp.responseText;
+                var str = data.split("|");
+                //var num = data.find("num").text;
+                //var price = data.find("price").text;
+                $(xmlhttp.this).parent().find("input.foodnum").val(str[0]);
+                $(xmlhttp.this).parent().parent().find("span.price").text(str[1]);
+                var unitPrice = parseFloat(str[2]);
+                var frontPrice = parseFloat($("#sumPrice").text());
+                $("#sumPrice").text((frontPrice-unitPrice).toString());
+            }
+        }
+        var foodId = $(this).parent().find("span.id_hide").text();
+        xmlhttp.this = this;
+        xmlhttp.open("POST", "minusFood.aspx", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("foodId=" + foodId);
+    })
+});

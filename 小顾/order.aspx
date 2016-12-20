@@ -17,6 +17,7 @@
     <title>小顾</title>
 </head>
 <body>
+    <form runat="server">
     <div data-role="page" id="page-order">
         <div data-role="navbar" class="nav-top">
             <div class="nav-top-1">
@@ -29,7 +30,7 @@
         </div>
         <!-- !-->
         <div style="position: relative">
-            <div data-role="collapsible">
+            <div data-role="collapsible" data-collapsed="false">
                 <h4>选菜</h4>
                 <div role="banner" class="ui-header ui-bar-a  slidedown">
                     <h1 class="ui-title" role="heading" aria-level="1">全选</h1>
@@ -37,131 +38,41 @@
                 </div>
                 <div id="list-all" role="main" class="ui-content order-list">
                     <ul id="list" class="touch ui-listview order-list-ul" data-role="listview" data-icon="false" data-split-icon="delete">
-                        <li class="ui-li-has-alt ui-first-child">
-                            <div class="order-list-li-box">
-                                <div class="order-list-pic-box">
-                                    <div class="thumbnail">
-                                        <img src="img/recommend.jpg" alt="recommend" />
-                                    </div>
-                                </div>
-                                <div class="order-list-content-box">
-                                    <p>扬州炒饭</p>
-                                    <div class="order-list-content-changenum">
-                                        <div class="order-list-content-changenum-price">
-                                            <p><span>￥</span><span>25.00</span></p>
+                        <asp:Repeater runat="server" ID="rptOrder">
+                            <HeaderTemplate><table></HeaderTemplate>
+                            <ItemTemplate>
+                                <li class="ui-li-has-alt ui-first-child">
+                                    <div class="order-list-li-box">
+                                        <div class="order-list-pic-box">
+                                            <div class="thumbnail">
+                                                <img src="upload/foodPicture/<%#((Order)Container.DataItem).Pic %>" alt="recommend" />
+                                            </div>
                                         </div>
-                                        <div class="order-list-content-changenum-btn">
-                                            <a data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all"></a>
-                                            <input type="text" disabled="disabled" />
-                                            <a data-role="button" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order-list-li-delete-box">
-                                <a href="#" class="delete ui-btn ui-btn-icon-notext ui-icon-delete" title="Delete"></a>
-                            </div>
-                        </li>
-                        <li class="ui-li-has-alt ui-first-child">
-                            <div class="order-list-li-box">
-                                <div class="order-list-pic-box">
-                                    <div class="thumbnail">
-                                        <img src="img/recommend.jpg" alt="recommend" />
-                                    </div>
-                                </div>
-                                <div class="order-list-content-box">
-                                    <p>扬州炒饭</p>
-                                    <div class="order-list-content-changenum">
-                                        <div class="order-list-content-changenum-price">
-                                            <p><span>￥</span><span>25.00</span></p>
-                                        </div>
-                                        <div class="order-list-content-changenum-btn">
-                                            <a data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all"></a>
-                                            <input type="text" disabled="disabled" />
-                                            <a data-role="button" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all"></a>
+                                        <div class="order-list-content-box">
+                                            <p><%#((Order)Container.DataItem).Name %></p>
+                                            <div class="order-list-content-changenum">
+                                                <div class="order-list-content-changenum-price">
+                                                    <p><span>￥</span><span class="price"><%# ((Order)Container.DataItem).Num*((Order)Container.DataItem).Price %></span></p>
+                                                </div>
+                                                <div class="order-list-content-changenum-btn">
+                                                    <span class="id_hide" runat="server"><%#((Order)Container.DataItem).Id %></span>
+                                                    <a data-role="button" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all"></a>
+                                                    <input type="text" disabled="disabled" class="foodnum" value='<%#((Order)Container.DataItem).Num %>' />
+                                                    <a data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all"></a>
+
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="order-list-li-delete-box">
-                                <a href="#" class="delete ui-btn ui-btn-icon-notext ui-icon-delete" title="Delete"></a>
-                            </div>
-                        </li>
-                        <li class="ui-li-has-alt ui-first-child">
-                            <div class="order-list-li-box">
-                                <div class="order-list-pic-box">
-                                    <div class="thumbnail">
-                                        <img src="img/recommend.jpg" alt="recommend" />
+                                    <div class="order-list-li-delete-box">
+                                        <a href="#" class="delete ui-btn ui-btn-icon-notext ui-icon-delete" title="Delete"></a>
                                     </div>
-                                </div>
-                                <div class="order-list-content-box">
-                                    <p>扬州炒饭</p>
-                                    <div class="order-list-content-changenum">
-                                        <div class="order-list-content-changenum-price">
-                                            <p><span>￥</span><span>25.00</span></p>
-                                        </div>
-                                        <div class="order-list-content-changenum-btn">
-                                            <a data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all"></a>
-                                            <input type="text" disabled="disabled" />
-                                            <a data-role="button" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order-list-li-delete-box">
-                                <a href="#" class="delete ui-btn ui-btn-icon-notext ui-icon-delete" title="Delete"></a>
-                            </div>
-                        </li>
-                        <li class="ui-li-has-alt ui-first-child">
-                            <div class="order-list-li-box">
-                                <div class="order-list-pic-box">
-                                    <div class="thumbnail">
-                                        <img src="img/recommend.jpg" alt="recommend" />
-                                    </div>
-                                </div>
-                                <div class="order-list-content-box">
-                                    <p>扬州炒饭</p>
-                                    <div class="order-list-content-changenum">
-                                        <div class="order-list-content-changenum-price">
-                                            <p><span>￥</span><span>25.00</span></p>
-                                        </div>
-                                        <div class="order-list-content-changenum-btn">
-                                            <a data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all"></a>
-                                            <input type="text" disabled="disabled" />
-                                            <a data-role="button" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order-list-li-delete-box">
-                                <a href="#" class="delete ui-btn ui-btn-icon-notext ui-icon-delete" title="Delete"></a>
-                            </div>
-                        </li>
-                        <li class="ui-li-has-alt ui-first-child">
-                            <div class="order-list-li-box">
-                                <div class="order-list-pic-box">
-                                    <div class="thumbnail">
-                                        <img src="img/recommend.jpg" alt="recommend" />
-                                    </div>
-                                </div>
-                                <div class="order-list-content-box">
-                                    <p>扬州炒饭</p>
-                                    <div class="order-list-content-changenum">
-                                        <div class="order-list-content-changenum-price">
-                                            <p><span>￥</span><span>25.00</span></p>
-                                        </div>
-                                        <div class="order-list-content-changenum-btn">
-                                            <a data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all"></a>
-                                            <input type="text" disabled="disabled" />
-                                            <a data-role="button" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order-list-li-delete-box">
-                                <a href="#" class="delete ui-btn ui-btn-icon-notext ui-icon-delete" title="Delete"></a>
-                            </div>
-                        </li>
+                                </li>
+                            </ItemTemplate>
+                            <FooterTemplate></table></FooterTemplate>
+                        </asp:Repeater>
+                
+          
 
                     </ul>
                 </div>
@@ -188,9 +99,11 @@
         </div>
         <!--order-list !-->
         <div style="position: relative">
-            <div data-role="collapsible">
+            <div data-role="collapsible" data-collapsed="false">
                 <h4>选座</h4>
             </div>
+            <asp:DropDownList runat="server" ID="ddlRoom"></asp:DropDownList>
+            <asp:DropDownList runat="server" ID="ddlTable"></asp:DropDownList>
         </div>
         <!--table !-->
         <div style="position: relative">
@@ -210,8 +123,8 @@
             </div>
         </div>
     <div class="confirm-buy">
-        <p class="sum-price"><span>￥</span><span>100.00</span></p>
-        <a class="ui-btn ui-btn-a buy">下单</a>
+        <p class="sum-price"><span>￥</span><span runat="server" id="sumPrice">100.00</span></p>
+        <asp:LinkButton runat="server" ID="lbtOrder" CssClass="ui-btn ui-btn-a buy" OnClick="lbtOrder_Click">下单</asp:LinkButton>
     </div>
     <div class="row nav-bottom clearfix text-center">
         <div class="col-xs-4 nav-item">
@@ -242,5 +155,6 @@
     <script src="Swiper-3.4.0/dist/js/swiper.min.js"></script>
     <script src="js/newjs3.js"></script>
     </div>
+</form>
 </body>
 </html>

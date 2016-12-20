@@ -36,6 +36,21 @@ public class Order
         get { return num; }
         set { num = value; }
     }
+    private string pic;
+
+    public string Pic
+    {
+        get { return pic; }
+        set { pic = value; }
+    }
+    private string type_id;
+
+    public string Type_id
+    {
+        get { return type_id; }
+        set { type_id = value; }
+    }
+
 	public Order()
 	{
         num = 0;

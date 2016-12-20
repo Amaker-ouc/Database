@@ -16,20 +16,20 @@ public partial class minusFood : System.Web.UI.Page
             if (orders[i].Id == foodId)
             {
                 if(orders[i].Num==1){
-                    orders.Remove(orders[i]);
-                    Response.Write("0|0");
+                    Response.Write("0|0|" + orders[i].Price.ToString());
+                    orders.Remove(orders[i]);                   
                     return;
                 }
                 else
                 {
                     orders[i].Num--;
                     double price = orders[i].Price * orders[i].Num;
-                    Response.Write(orders[i].Num.ToString() + "|" + price.ToString());
+                    Response.Write(orders[i].Num.ToString() + "|" + price.ToString() + "|" + orders[i].Price.ToString());
                     return;
                 }
                 
             }
         }
-        Response.Write("0|0");
+        Response.Write("0|0|0");
     }
 }
