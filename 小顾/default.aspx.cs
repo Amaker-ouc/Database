@@ -11,7 +11,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            var datasource=data.DataTable("select * from advertisement order by id desc");
+            var datasource = data.DataTable("select * from advertisement order by id desc");
             imgAd1.Src = "upload/foodPicture/" + datasource.Rows[0]["picture"].ToString();
             imgAd2.Src = "upload/foodPicture/" + datasource.Rows[1]["picture"].ToString();
             imgAd3.Src = "upload/foodPicture/" + datasource.Rows[2]["picture"].ToString();
@@ -24,74 +24,18 @@ public partial class Default2 : System.Web.UI.Page
             var datasource3 = data.DataTable("select * from food where recomend =2 order by id desc");
             rptSwiper.DataSource = datasource3;
             rptSwiper.DataBind();
+            if (Session["orders"] == null)
+            {
+                List<Order> orders = new List<Order>();
+                Session["orders"] = orders;
+            }
         }
+
     }
     protected void lbtfind_Click(object sender, EventArgs e)
     {
         Response.Redirect("admin/index.aspx");
     }
-    protected void lbtAdd_Click(object sender, EventArgs e)
-    {
-        txtFoodNum.Value = (Convert.ToInt32(txtFoodNum.Value)+1).ToString();
-        string id = spanID.InnerText;
-        var datasource = data.DataTable("select * from food where id ='" + id+"'");
-        Order order = new Order();
-        order.Id = id;
-        order.Name = datasource.Rows[0]["name"].ToString();
-        order.Price = Convert.ToInt32(datasource.Rows[0]["price"]);
-        order.Num = Convert.ToInt32(txtFoodNum.Value);
-        if (Session["order"] == null)
-        {
-            List<Order> orders = new List<Order>();
-            orders.Add(order);
-            Session["order"] = orders;
-        }
-        else
-        {
-            List<Order> orders = (List<Order>)Session["order"];
-            Order orderResult = orders.Find(
-            (o)=>
-            {
-                return o.Id == id;
-            });
-            if (orderResult != null)
-                orderResult.Num++;
-            else
-                orders.Add(order);
-        }
-        
-    }
-    protected void lbtMinus_Click(object sender, EventArgs e)
-    {
-        if (Convert.ToInt32(txtFoodNum.Value) > 1)
-        {
-            txtFoodNum.Value = (Convert.ToInt32(txtFoodNum.Value) - 1).ToString();
-            string id = spanID.InnerText;
-            var datasource = data.DataTable("select * from food where id =" + id);
-            Order order = new Order();
-            order.Id = id;
-            order.Name = datasource.Rows[0]["name"].ToString();
-            order.Price = Convert.ToInt32(datasource.Rows[0]["price"]);
-            order.Num = Convert.ToInt32(txtFoodNum.Value);
-            if (Session["order"] == null)
-            {
-                List<Order> orders = new List<Order>();
-                orders.Add(order);
-                Session["order"] = orders;
-            }
-            else
-            {
-                List<Order> orders = (List<Order>)Session["order"];
-                Order orderResult = orders.Find(
-                (o) =>
-                {
-                    return o.Id == id;
-                });
-                if (orderResult != null)
-                    orderResult.Num--;
-                else
-                    orders.Add(order);
-            }
-        }
-    }
+
+
 }

@@ -55,7 +55,8 @@
                         <div class="introduce-item">
                             <img alt="Free Shipping" runat="server" id="imgAd1" src="#" />
                             <p>
-                                <asp:Label runat="server" ID="lblAd1"></asp:Label></p>
+                                <asp:Label runat="server" ID="lblAd1"></asp:Label>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -64,7 +65,8 @@
                         <div class="introduce-item">
                             <img alt="Free Shipping" runat="server" id="imgAd2" src="#" />
                             <p>
-                                <asp:Label runat="server" ID="lblAd2"></asp:Label></p>
+                                <asp:Label runat="server" ID="lblAd2"></asp:Label>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -73,7 +75,8 @@
                         <div class="introduce-item">
                             <img alt="Free Shipping" runat="server" id="imgAd3" src="#" />
                             <p>
-                                <asp:Label runat="server" ID="lblAd3"></asp:Label></p>
+                                <asp:Label runat="server" ID="lblAd3"></asp:Label>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -108,23 +111,22 @@
 
                         <div data-role="popup" id="recommend" data-overlay-theme="d" data-theme="d" data-corners="false">
                             <a data-rel="back" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
-                            <span class="id_hide" runat="server" id="spanID">2005</span>
+                            <span class="id_hide" runat="server" id="spanID"></span>
                             <img class="popphoto" src="img/recommend.jpg" style="max-height: 512px;" />
                             <p class="discribe">描述</p>
                             <div class="pop-discribe">
-                                <p>
-                           
+                                <p><span>￥</span><span id="price" class="price"></span>
                                 </p>
                                 <div class="buy-bar">
                                     <div class="buy-add">
-                                         <asp:LinkButton runat="server" ID="lbtAdd" CssClass="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all" OnClick="lbtAdd_Click"></asp:LinkButton>
+                                        <a id="lbtAdd" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all" ></a>
                                     </div>
                                     <div class="buy-num">
                                         <input type="text" readonly="true" runat="server" id="txtFoodNum" value="1" />
                                     </div>
                                     <div class="buy-minus">
-                                      
-                                        <asp:LinkButton runat="server" ID="lbtMinus" CssClass="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all" OnClick="lbtMinus_Click"></asp:LinkButton>
+
+                                        <a  id="lbtMinus" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all" ></a>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +141,7 @@
                             <img src="img/home-active.png" />
                         </a>
                     </div>
-                    <div class="nav-item-bottom">小顾                   <div class="nav-item-bottom">小顾</div>
+                    <div class="nav-item-bottom">小顾</div>
                 </div>
                 <div class="col-xs-4 nav-item  ">
                     <div class="nav-item-up">

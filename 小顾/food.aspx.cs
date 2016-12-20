@@ -9,7 +9,11 @@ public partial class food : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["orders"] == null)
+        {
+            List<Order> orders = new List<Order>();
+            Session["orders"] = orders;
+        }
         var datasource = data.DataTable("select * from food_type where id<>1 order by id desc");
         rptType.DataSource = datasource;
         rptType.DataBind();

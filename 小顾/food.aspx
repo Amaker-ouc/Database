@@ -58,7 +58,7 @@
                                 <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
                                     <div class="thumbnail">
                                         <a href="#recommend" data-rel="popup" data-position-to="window" data-transition="fade">
-                                            <span class="id_hide"></span>
+                                            <span class="id_hide" runat="server"><%#Eval("id") %></span>
                                             <img src="upload/foodPicture/<%#Eval("picture") %>" alt="recommend" />
                                             <div class="caption">
                                                 <p class="discribe"><%#Eval("name") %></p>
@@ -80,17 +80,18 @@
                             <p class="discribe">描述</p>
                             <div class="pop-discribe">
                                 <p>
-                                    <span>￥</span><span class="price"></span>
+                                    <span>￥</span><span id="price" class="price"></span>
                                 </p>
                                 <div class="buy-bar">
                                     <div class="buy-add">
-                                        <a data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all"></a>
+                                        <a id="lbtAdd" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all" ></a>
                                     </div>
                                     <div class="buy-num">
-                                        <input type="text" readonly="true" />
+                                        <input type="text" readonly="true" runat="server" id="txtFoodNum" value="1" />
                                     </div>
                                     <div class="buy-minus">
-                                        <a data-role="button" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all"></a>
+
+                                        <a  id="lbtMinus" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all" ></a>
                                     </div>
                                 </div>
                             </div>
