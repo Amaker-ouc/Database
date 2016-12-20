@@ -2,7 +2,9 @@
     overflow-x:hidden;
     overflow-y:auto;
 }
-
+.body-hidden{
+    overflow:hidden;
+}
 body{
     position:relative;
     margin:auto;

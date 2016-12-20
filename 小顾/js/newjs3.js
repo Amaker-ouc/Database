@@ -47,6 +47,7 @@ $(document).on("pagecreate", "#page-default", function () {
         $("#recommend span.id_hide").text(id_hide);
         $(".id_hide").hide();
     })
+    
 })
 $(document).on("pagecreate", "#page-food", function () {
     $(".nav-top a").removeClass("ui-btn uibtn-up-d ui-btn-inline")
@@ -61,6 +62,7 @@ $(document).on("pagecreate", "#page-food", function () {
         $("#recommend span.id_hide").text(id_hide);
         $(".id_hide").hide();
     })
+    $("#classify-choose")
 })
 $(document).on("pagecreate", "#page-order", function () {
     $(".nav-top a").removeClass("ui-btn uibtn-up-d ui-btn-inline")

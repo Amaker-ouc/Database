@@ -115,7 +115,6 @@
                                 <p>
                            
                                 </p>
-
                                 <div class="buy-bar">
                                     <div class="buy-add">
                                          <asp:LinkButton runat="server" ID="lbtAdd" CssClass="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all" OnClick="lbtAdd_Click"></asp:LinkButton>
