@@ -90,7 +90,7 @@
                                 <div class="col-xs-4 col-sm-3 col-lg-2 recommend-box">
                                     <div class="thumbnail">
                                         <a href="#recommend" data-rel="popup" data-position-to="window" data-transition="fade" class="pic-box">
-                                            <span class="id_hide">12</span>
+                                            <span class="id_hide" runat="server"><%#Eval("id") %></span>
                                             <img src="upload/foodPicture/<%#Eval("picture") %>" alt="recommend" />
                                             <div class="caption">
                                                 <p class="discribe"><%#Eval("name") %></p>
@@ -108,23 +108,24 @@
 
                         <div data-role="popup" id="recommend" data-overlay-theme="d" data-theme="d" data-corners="false">
                             <a data-rel="back" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
-                            <span class="id_hide"></span>
+                            <span class="id_hide" runat="server" id="spanID">2005</span>
                             <img class="popphoto" src="img/recommend.jpg" style="max-height: 512px;" />
                             <p class="discribe">描述</p>
                             <div class="pop-discribe">
                                 <p>
-                                    <span>￥</span><span class="price"></span>
+                           
                                 </p>
 
                                 <div class="buy-bar">
                                     <div class="buy-add">
-                                        <a data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all"></a>
+                                         <asp:LinkButton runat="server" ID="lbtAdd" CssClass="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all" OnClick="lbtAdd_Click"></asp:LinkButton>
                                     </div>
                                     <div class="buy-num">
-                                        <input type="text" readonly="true" />
+                                        <input type="text" readonly="true" runat="server" id="txtFoodNum" value="1" />
                                     </div>
                                     <div class="buy-minus">
-                                        <a data-role="button" class="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all"></a>
+                                      
+                                        <asp:LinkButton runat="server" ID="lbtMinus" CssClass="ui-btn ui-icon-minus ui-btn-icon-notext ui-corner-all" OnClick="lbtMinus_Click"></asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +140,7 @@
                             <img src="img/home-active.png" />
                         </a>
                     </div>
-                    <div class="nav-item-bottom">小顾</div>
+                    <div class="nav-item-bottom">小顾                   <div class="nav-item-bottom">小顾</div>
                 </div>
                 <div class="col-xs-4 nav-item  ">
                     <div class="nav-item-up">
