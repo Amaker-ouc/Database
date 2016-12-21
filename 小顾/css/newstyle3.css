@@ -275,7 +275,8 @@ a:hover{
     background-color: #ffffff !important
 }
 div.ui-page{
-    
+    padding-top: 50px !important;
+    padding-bottom: 50px !important
 }
 .col-xs-4{
     padding:0.5px 0.5px 0.5px 0.5px !important
@@ -461,6 +462,4 @@ div.ui-page{
     display:none;
 }
 .table{
-    width:80% !important;
-    margin:0 auto !important;
 }

@@ -124,7 +124,6 @@
                     <div class="nav-item-bottom">订单</div>
                 </div>
             </div>
-            <script src="Swiper-3.4.0/dist/js/swiper.min.js"></script>
             <script src="js/newjs3.js"></script>
         </div>
     </form>

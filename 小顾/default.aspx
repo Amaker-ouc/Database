@@ -107,8 +107,6 @@
                             </ItemTemplate>
                             <FooterTemplate></table></FooterTemplate>
                         </asp:Repeater>
-
-
                         <div data-role="popup" id="recommend" data-overlay-theme="d" data-theme="d" data-corners="false">
                             <a data-rel="back" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
                             <span class="id_hide" runat="server" id="spanID"></span>
@@ -162,7 +160,6 @@
             </div>
             <script src="Swiper-3.4.0/dist/js/swiper.min.js"></script>
             <script src="js/newjs3.js"></script>
-
         </div>
     </form>
 </body>
