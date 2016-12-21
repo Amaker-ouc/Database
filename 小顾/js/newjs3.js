@@ -320,4 +320,6 @@ $(document).on("pagecreate", "#page-order", function () {
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send("foodId=" + foodId);
     })
+    $("#ddlRoom-button").removeClass("ui-shadow"); 
+    $("#ddlTable-button").removeClass("ui-shadow");
 });
