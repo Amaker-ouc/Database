@@ -17,10 +17,13 @@
     <title>小顾</title>
 </head>
 <body>
+    <form runat="server">
     <div data-role="page" id="page-cook">
         <div data-role="navbar" class="nav-top">
             <div class="nav-top-1">
                 <p><strong>厨师</strong></p>
+                <asp:DropDownList runat="server" ID="ddlCook" OnSelectedIndexChanged="ddlCook_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                <span id="cookid" runat="server" style="display:none"></span>
             </div>
             <div class="nav-top-2">
             </div>
@@ -29,54 +32,18 @@
         </div>
         <div id="list-all" role="main" class="ui-content list">
             <ul id="list" class="touch ui-listview order-list-ul" data-role="listview" data-icon="false" data-split-icon="delete">
-                <li class="ui-li-has-alt ui-first-child">
-                    <div class="li-box">
-                        <p class="food-name">扬州炒饭</p>
-                        <p class="state">完成</p>
-                    </div>
-                </li>
-                <li class="ui-li-has-alt ui-first-child">
-                    <div class="li-box">
-                        <p class="food-name">扬州炒饭</p>
-                        <p class="state">完成</p>
-                    </div>
-                </li>
-                <li class="ui-li-has-alt ui-first-child">
-                    <div class="li-box">
-                        <p class="food-name">扬州炒饭</p>
-                        <p class="state">完成</p>
-                    </div>
-                </li>
-                <li class="ui-li-has-alt ui-first-child">
-                    <div class="li-box">
-                        <p class="food-name">扬州炒饭</p>
-                        <p class="state">完成</p>
-                    </div>
-                </li>
-                <li class="ui-li-has-alt ui-first-child">
-                    <div class="li-box">
-                        <p class="food-name">扬州炒饭</p>
-                        <p class="state">完成</p>
-                    </div>
-                </li>
-                <li class="ui-li-has-alt ui-first-child">
-                    <div class="li-box">
-                        <p class="food-name">扬州炒饭</p>
-                        <p class="state">等待</p>
-                    </div>
-                </li>
-                <li class="ui-li-has-alt ui-first-child">
-                    <div class="li-box">
-                        <p class="food-name">扬州炒饭</p>
-                        <p class="state">等待</p>
-                    </div>
-                </li>
-                <li class="ui-li-has-alt ui-first-child">
-                    <div class="li-box">
-                        <p class="food-name">扬州炒饭</p>
-                        <p class="state">等待</p>
-                    </div>
-                </li>
+                <asp:Repeater runat="server" ID="rptFinish">
+                    <HeaderTemplate></HeaderTemplate>
+                    <ItemTemplate>
+                        <li class="ui-li-has-alt ui-first-child">
+                            <div class="li-box">
+                                <p class="food-name"><%#Eval("name")%></p>
+                                <p class="state">完成</p>
+                            </div>
+                        </li>
+                    </ItemTemplate>
+                    <FooterTemplate></FooterTemplate>
+                </asp:Repeater>
             </ul>
         </div>
         <!-- /popup -->
@@ -103,10 +70,12 @@
                 <div class="ui-grid-a">
                     <a id="cook" class="ui-btn ui-corner-all ui-mini ui-btn-a">烹饪</a>
                     <a id="finish" class="ui-btn ui-corner-all ui-mini ui-btn-a hide" data-rel="back">完成</a>
+                    <span runat="server" id="orderid" style="display:none"></span>
                 </div>
             </div>
         </div>
         <script src="js/cook.js"></script>
     </div>
+</form>
 </body>
 </html>

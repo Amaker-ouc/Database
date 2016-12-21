@@ -30,6 +30,24 @@
         $("#cook").text("烹饪");
         $("#cook").removeClass("hide");
         $("#finish").addClass("hide");
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var li = "<li class=\"ui-li-has-alt ui-li-static ui-body-inherit ui-first-child ui-last-child\"><div class=\"li-box\"><p class=\"food-name\">"+ $("#newfood-name").text() +"</p><p class=\"state\">完成</p></div></li>"
+                $("#list").append(li)          
+            }
+        }
+        xmlhttp.open("POST", "finish.aspx", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("cookid=" + $("#cookid").text());
     })
 })
 
@@ -46,11 +64,13 @@ function loadfood() {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             var foodName = xmlhttp.responseText;
-            $("#newfood-name").text(foodName)
-            $("#newfood").popup("open")
+            if (foodName != "none") {
+                $("#newfood-name").text(foodName)
+                $("#newfood").popup("open")
+            }
         }
     }
     xmlhttp.open("POST", "loadfood.aspx", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("cookid=1");
+    xmlhttp.send("cookid=" + $("#cookid").text());
 }

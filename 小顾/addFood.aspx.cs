@@ -33,5 +33,6 @@ public partial class addFood : System.Web.UI.Page
         }
         orders.Add(order);
         Response.Write(order.Num.ToString() + "|" + order.Price.ToString());
+        
     }
 }

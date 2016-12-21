@@ -63,7 +63,7 @@ public partial class order : System.Web.UI.Page
     {
         if (Session["orders"] != null)
         {
-            if (data.DataTable("select isUse from dining_table").Rows[0][0].ToString() == "0")
+            if (data.DataTable("select isUse from dining_table where id="+ddlTable.SelectedValue).Rows[0][0].ToString() == "0")
             {
                 List<Order> orders = (List<Order>)Session["orders"];
                 DateTime date = DateTime.Now;

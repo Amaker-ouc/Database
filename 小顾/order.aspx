@@ -1,6 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="order.aspx.cs" Inherits="order" %>
 
 <!DOCTYPE html>
+<script runat="server">
+
+</script>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -38,7 +42,7 @@
                     </div>
                     <div id="list-all" role="main" class="ui-content order-list">
                         <ul id="list" class="touch ui-listview order-list-ul" data-role="listview" data-icon="false" data-split-icon="delete">
-                            <asp:Repeater runat="server" ID="rptOrder">
+                            <asp:Repeater runat="server" ID="rptOrder" >
                                 <HeaderTemplate>
                                     <table>
                                 </HeaderTemplate>
