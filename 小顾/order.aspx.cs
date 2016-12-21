@@ -29,14 +29,9 @@ public partial class order : System.Web.UI.Page
                     sum += orders[i].Price * orders[i].Num;
                 }
                 sumPrice.InnerText = sum.ToString();
-                ddlRoom.DataSource = data.DataTable("select * from room");
-                ddlRoom.DataValueField = "id";
-                ddlRoom.DataTextField = "name";
-                ddlRoom.DataBind();
-                ddlTable.DataSource = data.DataTable("select * from dining_table where room_id=" + ddlRoom.SelectedValue + "and isUse=0");
-                ddlTable.DataValueField = "id";
-                ddlTable.DataTextField = "id";
-                ddlTable.DataBind();
+                RoomBind();
+                TableBind();
+                
             }
         }
        
@@ -50,33 +45,52 @@ public partial class order : System.Web.UI.Page
             rptOrder.DataBind();
         }
     }
-
+    public void RoomBind()
+    {
+        ddlRoom.DataSource = data.DataTable("select * from room");
+        ddlRoom.DataValueField = "id";
+        ddlRoom.DataTextField = "name";
+        ddlRoom.DataBind();
+    }
+    public void TableBind()
+    {
+        ddlTable.DataSource = data.DataTable("select *,cast(id as varchar(50))+N'号桌------' +cast(size as varchar(50))+N'人' as idsize from dining_table where room_id=" + ddlRoom.SelectedValue + "and isUse=0");
+        ddlTable.DataValueField = "id";
+        ddlTable.DataTextField = "idsize";
+        ddlTable.DataBind();
+    }
     protected void lbtOrder_Click(object sender, EventArgs e)
     {
         if (Session["orders"] != null)
         {
-            List<Order> orders = (List<Order>)Session["orders"];
-            DateTime date = DateTime.Now;
-            string insert = "insert into orders values('" + ddlTable.SelectedValue + "',N'" + date + "')";
-            data.OperateLine(insert);
-            string update = "update dining_table set isUse=1 where id=" + ddlTable.SelectedValue;
-            data.OperateLine(update);
-            for (int i = 0; i < orders.Count; i++)
+            if (data.DataTable("select isUse from dining_table").Rows[0][0].ToString() == "0")
             {
-                string order_id = data.DataTable("select * from orders order by id desc").Rows[0]["id"].ToString();
-                string cook_id = data.DataTable("select * from cook where food_type_id='" + orders[i].Type_id + "'order by allocation").Rows[0]["id"].ToString();
-                string insert2 = "insert into food_orders (food_id,orders_id,cook_id) values('" + orders[i].Id + "','" + order_id + "','" + cook_id + "')";
-                for (int j = 0; j < orders[i].Num; j++)
+                List<Order> orders = (List<Order>)Session["orders"];
+                DateTime date = DateTime.Now;
+                string insert = "insert into orders values('" + ddlTable.SelectedValue + "',N'" + date + "')";
+                data.OperateLine(insert);
+                string update = "update dining_table set isUse=1 where id=" + ddlTable.SelectedValue;
+                data.OperateLine(update);
+                for (int i = 0; i < orders.Count; i++)
                 {
-                    data.OperateLine(insert2);
+                    string order_id = data.DataTable("select * from orders order by id desc").Rows[0]["id"].ToString();
+                    string cook_id = data.DataTable("select * from cook where food_type_id='" + orders[i].Type_id + "'order by allocation").Rows[0]["id"].ToString();
+                    string insert2 = "insert into food_orders (food_id,orders_id,cook_id) values('" + orders[i].Id + "','" + order_id + "','" + cook_id + "')";
+                    for (int j = 0; j < orders[i].Num; j++)
+                    {
+                        data.OperateLine(insert2);
+                    }
+                    string update2 = "update cook set allocation=allocation+" + orders[i].Num.ToString() + " where id =" + cook_id;
+                    data.OperateLine(update2);
                 }
-                string update2 = "update cook set allocation=allocation+" + orders[i].Num.ToString() + " where id =" + cook_id;
-                data.OperateLine(update2);
+                List<Order> orders2 = new List<Order>();
+                Session["orders"] = orders2;
+                ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('下单成功');</script>");
+                OrderBind();
+                TableBind();
             }
-            List<Order> orders2 = new List<Order>();
-            Session["orders"] = orders2;
-            ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('下单成功');</script>");
-            OrderBind();
+            else
+                ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('餐桌已用');</script>");
 
         }
         else
@@ -86,9 +100,6 @@ public partial class order : System.Web.UI.Page
     }
     protected void ddlRoom_SelectedIndexChanged(object sender, EventArgs e)
     {
-        ddlTable.DataSource = data.DataTable("select * from dining_table where room_id=" + ddlRoom.SelectedValue + "and isUse=0");
-        ddlTable.DataValueField = "id";
-        ddlTable.DataTextField = "id";
-        ddlTable.DataBind();
+        TableBind();
     }
 }
