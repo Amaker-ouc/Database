@@ -34,7 +34,7 @@ public partial class Default2 : System.Web.UI.Page
     }
     protected void lbtfind_Click(object sender, EventArgs e)
     {
-        Response.Redirect("admin/index.aspx");
+        Response.Redirect("cook.aspx");
     }
 
 

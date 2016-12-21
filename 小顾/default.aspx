@@ -122,7 +122,7 @@
                                         <a id="lbtAdd" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all" ></a>
                                     </div>
                                     <div class="buy-num">
-                                        <input type="text" readonly="true" runat="server" id="txtFoodNum" value="1" />
+                                        <input type="text" readonly="true" runat="server" id="txtFoodNum" />
                                     </div>
                                     <div class="buy-minus">
 
