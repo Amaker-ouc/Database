@@ -30,6 +30,11 @@ public partial class food : System.Web.UI.Page
             rptFood.DataSource = datasource2;
             rptFood.DataBind();
         }
+        if (Session["orders"] == null)
+        {
+            List<Order> orders = new List<Order>();
+            Session["orders"] = orders;
+        }
 
     }
     protected void rptType_ItemCommand(object source, RepeaterCommandEventArgs e)

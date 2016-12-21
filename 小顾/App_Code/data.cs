@@ -22,6 +22,7 @@ public class data
                     da.Fill(dt);//进行填充
                 }
                 return dt;//返回这个数据集
+                
             }
 
         }

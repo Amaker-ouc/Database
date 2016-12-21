@@ -102,7 +102,7 @@
             <div data-role="collapsible" data-collapsed="false">
                 <h4>选座</h4>
             </div>
-            <asp:DropDownList runat="server" ID="ddlRoom"></asp:DropDownList>
+            <asp:DropDownList runat="server" ID="ddlRoom" OnSelectedIndexChanged="ddlRoom_SelectedIndexChanged" AutoPostBack="true" ></asp:DropDownList>
             <asp:DropDownList runat="server" ID="ddlTable"></asp:DropDownList>
         </div>
         <!--table !-->
