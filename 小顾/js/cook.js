@@ -18,7 +18,19 @@
             });
         }
     })
-    setInterval("loadfood()", "1000");
+    setInterval("loadfood()", "3000");
+    $(document).on("click", "#cook", function () {
+        $(this).text("烹饪中...");
+        setTimeout(function () {
+            $("#cook").addClass("hide");
+            $("#finish").removeClass("hide");
+        }, 5000)
+    })
+    $(document).on("click", "#finish", function () {
+        $("#cook").text("烹饪");
+        $("#cook").removeClass("hide");
+        $("#finish").addClass("hide");
+    })
 })
 
 function loadfood() {

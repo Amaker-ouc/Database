@@ -39,6 +39,7 @@ body{
 }
 .ui-page{
     margin-top:50px;
+    overflow:hidden !important;
 }
 .li-box{
     display:flex;
@@ -58,4 +59,7 @@ body{
 }
 .confirm-active {
     opacity:0.1
+}
+.hide{
+    display:none;
 }

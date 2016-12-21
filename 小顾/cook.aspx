@@ -101,9 +101,8 @@
                 <p id="newfood-name"></p>
                 <p id="tip">菜已下单，请烹饪！</p>
                 <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <a id="tip-yes" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">确定</a>
-                    </div>
+                    <a id="cook" class="ui-btn ui-corner-all ui-mini ui-btn-a">烹饪</a>
+                    <a id="finish" class="ui-btn ui-corner-all ui-mini ui-btn-a hide" data-rel="back">完成</a>
                 </div>
             </div>
         </div>
