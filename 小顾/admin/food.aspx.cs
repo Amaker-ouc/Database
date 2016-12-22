@@ -23,7 +23,7 @@ public partial class admin_Default : System.Web.UI.Page
     }
     public void foodBind()
     {
-        var dataSource = data.DataTable("select * from food where food_type_id=" + ddlFoodType.SelectedValue.ToString()+"order by id desc");
+        var dataSource = data.DataTable("select food.id,name,price,picture,food_type_id,recomend,food_id,rest_num from food,material where food_type_id=" + ddlFoodType.SelectedValue.ToString()+" and food.id=material.food_id order by id desc");
         rptGoods.DataSource = dataSource;
         rptGoods.DataBind();
     }
@@ -49,6 +49,8 @@ public partial class admin_Default : System.Web.UI.Page
             }
             string delete = "delete from food where id =" + id;
             data.OperateLine(delete);
+            string delete2 = "delete from material where food_id =" + id;
+            data.OperateLine(delete2);
             foodBind();
            
         }

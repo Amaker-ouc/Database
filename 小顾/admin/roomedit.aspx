@@ -18,8 +18,9 @@
         <label>类型</label>
            <asp:DropDownList ID="ddlType" runat="server" CssClass="form-control" Width="450px">
                 <asp:ListItem Value="1">小包</asp:ListItem>
-                <asp:ListItem Value="2">大包</asp:ListItem>
-                <asp:ListItem Value="3">大厅</asp:ListItem>
+                <asp:ListItem Value="2">中包</asp:ListItem>
+                <asp:ListItem Value="3">大包</asp:ListItem>
+                <asp:ListItem Value="4">大厅</asp:ListItem>
           </asp:DropDownList>
         </div>
     

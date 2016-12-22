@@ -72,6 +72,9 @@ public partial class admin_Default2 : System.Web.UI.Page
                     string insert = "insert into food(name,price,food_type_id,picture,recomend) values(N'" + txtName.Text + "',N'" + txtPrice.Text + "',N'"
                                     + food_type_id + "',N'" + goodsPicName + "',N'" + show + "')";
                     data.OperateLine(insert);
+                    string id = data.DataTable("select id from food order by id desc").Rows[0][0].ToString();
+                    string insert2 = "insert into material(food_id,rest_num) values(N'" + id + "',0)";
+                    data.OperateLine(insert2);
                     Session["type"] = food_type_id;
                 }
                 else

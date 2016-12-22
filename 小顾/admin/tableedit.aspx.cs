@@ -17,6 +17,7 @@ public partial class admin_Default : System.Web.UI.Page
                 string tabelid = Request.QueryString["id"].ToString();
                 string tableSelect = "select * from dining_table where id =" + tabelid;
                 var datasource = data.DataTable(tableSelect);
+                txtID.Text = tabelid;
                 txtSize.Text = datasource.Rows[0]["size"].ToString();
                 ddlRoom.SelectedValue = datasource.Rows[0]["room_id"].ToString();
             }

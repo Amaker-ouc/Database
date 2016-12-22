@@ -127,7 +127,8 @@
     <li><a href="#" class="nav-header" ><i class="fa active fa-fw fa-dashboard"></i>后台管理<i class="fa fa-collapse"></i></a></li>
     <li><ul class="dashboard-menu nav nav-list collapse in">
             <li><a href="index.aspx"><span class="fa fa-caret-right"></span>后台首页</a></li>
-            <li ><a href="advertisement.aspx" id="aNotice" runat="server"><span class="fa fa-caret-right"></span>广告管理</a></li>
+            <li ><a href="order.aspx"><span class="fa fa-caret-right"></span>订单管理</a></li> 
+            <li ><a href="advertisement.aspx"><span class="fa fa-caret-right"></span>广告管理</a></li>
     </ul></li>
 
     <li><a href="#" class="nav-header"><i class="fa fa-fw fa-fighter-jet"></i>商品管理<i class="fa fa-collapse"></i></a></li>
@@ -142,8 +143,8 @@
             <li ><a href="room.aspx"><span class="fa fa-caret-right"></span>房间管理 </a></li>
         
     </ul></li>
-        <li id="aUsers" runat="server" ><a href="#" class="nav-header"><i class="fa fa-fw fa-briefcase"></i>人员管理<span class="label label-info">+3</span></a></li>
-         <li id="aUsers2" runat="server"><ul class="accounts-menu nav nav-list collapse in">
+        <li><a href="#" class="nav-header"><i class="fa fa-fw fa-briefcase"></i>人员管理<span class="label label-info">+3</span></a></li>
+         <li><ul class="accounts-menu nav nav-list collapse in">
             <li ><a href="cook.aspx"><span class="fa fa-caret-right"></span>厨师管理</a></li>
             <li ><a href="waiter.aspx"><span class="fa fa-caret-right"></span>服务员管理</a></li>
     </ul></li>

@@ -16,6 +16,7 @@
                     <tr>
                       <th>菜名</th>
                       <th>价格</th>
+                      <th>数量</th>
                       <th>图片</th>
                       <th style="width: 3.5em;"></th>
                     </tr>
@@ -25,6 +26,8 @@
                <tr>
                 <td><%#Eval("name")%></td> 
                 <td><%#Eval("price")%></td> 
+                <td><%#Eval("rest_num")%></td> 
+
                 <td><asp:ImageMap ID="impGoods" runat="server" ImageUrl='<%# "../upload/foodPicture/"+Eval("picture") %>' Width="8em" Height="6em"></asp:ImageMap></td> 
                 <td><asp:LinkButton ID="btnChange" runat="server" Text="修改信息" CommandName="edit"
                     CommandArgument='<%#Eval("id") %>'><i class="fa fa-pencil"></i></asp:LinkButton></td>
