@@ -22,10 +22,10 @@
         <div data-role="navbar" class="nav-top">
             <div class="nav-top-1">
                 <p><strong>厨师</strong></p>
-                <asp:DropDownList runat="server" ID="ddlCook" OnSelectedIndexChanged="ddlCook_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                <span id="cookid" runat="server" style="display:none"></span>
             </div>
             <div class="nav-top-2">
+                <asp:DropDownList runat="server" ID="ddlCook" OnSelectedIndexChanged="ddlCook_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                <span id="cookid" runat="server" style="display:none"></span>
             </div>
             <div class="nav-top-3">
             </div>

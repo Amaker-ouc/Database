@@ -31,6 +31,7 @@ body{
     border:0;
     text-align:center;
 }
+
 .nav-top-1 p{
     display:inline-block;
     margin:10px auto;
@@ -62,4 +63,23 @@ body{
 }
 .hide{
     display:none;
+}
+.nav-top-2{
+    width: 30%;
+    float: right;
+    margin-right: 20px;
+    overflow: hidden;
+    height: 50px;
+}
+.ui-select{
+    margin:0;
+}
+#ddlCook-button{
+    height: 50px;
+    border-radius: 0;
+    background-color: red !important;
+    border: 0;
+}
+#ddlCook-button span{
+    color:white;
 }

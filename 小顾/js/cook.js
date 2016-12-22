@@ -49,6 +49,7 @@
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send("cookid=" + $("#cookid").text());
     })
+    $("#ddlCook-button").removeClass("ui-corner-all ui-shadow");
 })
 
 function loadfood() {
