@@ -32,8 +32,6 @@ public partial class admin_Default : System.Web.UI.Page
         else if (state == "1")
             return "已有服务员受理";
         else if (state == "2")
-            return "菜已上齐";
-        else if (state == "3")
             return "订单完结";
         else
             return "信息错误";
@@ -41,7 +39,7 @@ public partial class admin_Default : System.Web.UI.Page
     public string OrdersWaiter(object i)
     {
         string id = i.ToString();
-        if (i != null)
+        if (i == null)
         {
             return "无";
         }
@@ -62,9 +60,6 @@ public partial class admin_Default : System.Web.UI.Page
         }
         else if (e.CommandName == "edit")
         {
-            string update = "update orders set state=3 where id =" + id;
-            data.OperateLine(update);
-            ordersBind();
         }
     }
 }

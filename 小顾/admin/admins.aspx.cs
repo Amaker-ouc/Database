@@ -31,7 +31,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else if(e.CommandName=="edit")
         {
-            Response.Redirect("addadmins.aspx?id=" + id);
+            Server.Transfer("addadmins.aspx?id=" + id);
         }
     }
 }

@@ -33,7 +33,7 @@ public partial class admin_Default : System.Web.UI.Page
                 string password = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "MD5");
                 string insert = "insert into admins (account,password,power) values (N'" + txtAccount.Text + "',N'" + password + "','2')";
                 data.OperateLine(insert);
-                Response.Redirect("admins.aspx");
+                Server.Transfer("admins.aspx");
             }
             else if(txtPassword.Text=="")
                 ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('密码不能为空');</script>");
@@ -53,7 +53,7 @@ public partial class admin_Default : System.Web.UI.Page
                 string password = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(txtPassword.Text, "MD5");
                 string update = "update admins set account=N'" + txtAccount.Text + "',password=N'" + password + "' where id=" + id;
                 data.OperateLine(update);
-                Response.Redirect("admins.aspx");
+                Server.Transfer("admins.aspx");
             }
             else
                 ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('账户已存在');</script>");
