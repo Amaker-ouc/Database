@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <!-- new food -->
+        <!-- new service -->
         <div class="ui-popup-container ui-popup-hidden ui-popup-truncate">
             <div id="newServicePop" class="ui-content ui-popup ui-body-a ui-overlay-shadow ui-corner-all" data-role="popup" data-theme="a">
                 <p id="newService"></p>
@@ -72,6 +72,35 @@
                 <div class="ui-grid-a">
                     <a id="confirm_id" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">确定</a>
                     <span runat="server" id="orderid" style="display:none"></span>
+                </div>
+            </div>
+        </div>
+        <!--Serving -->
+        <div class="ui-popup-container ui-popup-hidden ui-popup-truncate">
+            <div id="Serving" class="ui-content ui-popup ui-body-a ui-overlay-shadow ui-corner-all" data-role="popup" data-theme="a">
+                <p id="serving_room_table"></p>
+                <p id="food_name"></p>
+                <p>菜已做完，请上菜</p>
+                <div class="ui-grid-a">
+                    <a id="serving_yes" class="ui-btn ui-corner-all ui-mini ui-btn-a">确定</a>
+                    <a id="serving_finish" class="ui-btn ui-corner-all ui-mini ui-btn-a hide" data-rel="back">已上菜</a>
+                    <span id="food_order_id" style="display:none"></span>
+                </div>
+            </div>
+        </div>
+        <!-- finish serving-->
+        <div class="ui-popup-container ui-popup-hidden ui-popup-truncate">
+            <div id="finishServing" class="ui-content ui-popup ui-body-a ui-overlay-shadow ui-corner-all" data-role="popup" data-theme="a">
+                <p id="finish_serving_room_table"></p>
+                <p id="finish_food_name"></p>
+                <p>确定完成？</p>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <a id="finishSering_yes" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">确定</a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">取消</a>
+                    </div>
                 </div>
             </div>
         </div>
