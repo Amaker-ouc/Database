@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="//cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="//cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//fast.eager.io/7EYceZSwNz.js"></script>
-    <link rel="stylesheet" href="css/cookcss.css" />
+    <link rel="stylesheet" href="css/waiter.css" />
     <title>小顾</title>
 </head>
 <body>
@@ -25,21 +25,22 @@
                 <p><strong>服务员</strong></p>
             </div>
             <div class="nav-top-2">
-                <asp:DropDownList runat="server" ID="ddlCook" OnSelectedIndexChanged="ddlCook_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                <span id="cookid" runat="server" style="display:none"></span>
+                <asp:DropDownList runat="server" ID="ddlWaiter" OnSelectedIndexChanged="ddlWaiter_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                <span id="waiterid" runat="server" style="display:none"></span>
             </div>
             <div class="nav-top-3">
             </div>
         </div>
         <div id="list-all" role="main" class="ui-content list">
             <ul id="list" class="touch ui-listview order-list-ul" data-role="listview" data-icon="false" data-split-icon="delete">
-                <asp:Repeater runat="server" ID="rptFinish">
+                <asp:Repeater runat="server" ID="rptService">
                     <HeaderTemplate></HeaderTemplate>
                     <ItemTemplate>
                         <li class="ui-li-has-alt ui-first-child">
                             <div class="li-box">
-                                <p class="food-name"><%#Eval("name")%></p>
-                                <p class="state">完成</p>
+                                <span runat="server" id="order_id" style="display:none"><%#Eval("order_id")%></span>
+                                <p class="room-table"><%#Eval("name")%>-----第<%#Eval("id")%>号餐桌</p>
+                                <p class="state">服务中</p>
                             </div>
                         </li>
                     </ItemTemplate>
@@ -51,11 +52,11 @@
         <div class="ui-screen-hidden ui-popup-screen ui-overlay-inherit" id="confirm-screen"></div>
         <div class="ui-popup-container ui-popup-hidden ui-popup-truncate" id="confirm-popup">
             <div id="confirm" class="ui-content ui-popup ui-body-a ui-overlay-shadow ui-corner-all" data-role="popup" data-theme="a">
-                <p id="food-name"></p>
+                <p id="room_table"></p>
                 <p id="question">确定完成？</p>
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
-                        <a id="yes" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">确定</a>
+                        <a id="finish" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">确定</a>
                     </div>
                     <div class="ui-block-b">
                         <a id="cancel" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">取消</a>
@@ -65,12 +66,11 @@
         </div>
         <!-- new food -->
         <div class="ui-popup-container ui-popup-hidden ui-popup-truncate">
-            <div id="newfood" class="ui-content ui-popup ui-body-a ui-overlay-shadow ui-corner-all" data-role="popup" data-theme="a">
-                <p id="newfood-name"></p>
-                <p id="tip">菜已下单，请烹饪！</p>
+            <div id="newServicePop" class="ui-content ui-popup ui-body-a ui-overlay-shadow ui-corner-all" data-role="popup" data-theme="a">
+                <p id="newService"></p>
+                <p id="tip">客人已到，请服务</p>
                 <div class="ui-grid-a">
-                    <a id="cook" class="ui-btn ui-corner-all ui-mini ui-btn-a">烹饪</a>
-                    <a id="finish" class="ui-btn ui-corner-all ui-mini ui-btn-a hide" data-rel="back">完成</a>
+                    <a id="confirm_id" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">确定</a>
                     <span runat="server" id="orderid" style="display:none"></span>
                 </div>
             </div>

@@ -70,7 +70,7 @@ public partial class order : System.Web.UI.Page
                 {
                     DateTime date = DateTime.Now;
                     string waiter_id = data.DataTable("select * from waiter where position=1 and sign_in=1 order by allocation").Rows[0]["id"].ToString();
-                    string insert = "insert into orders values('" + ddlTable.SelectedValue + "',N'" + date +"',N'" + waiter_id + "')";
+                    string insert = "insert into orders(dining_table_id,order_time,waiter_id) values('" + ddlTable.SelectedValue + "',N'" + date +"',N'" + waiter_id + "')";
                     data.OperateLine(insert);
                     string update = "update dining_table set isUse=1 where id=" + ddlTable.SelectedValue;
                     data.OperateLine(update);

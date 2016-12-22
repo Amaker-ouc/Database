@@ -1,0 +1,85 @@
+﻿html{
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+body{
+    position:relative;
+    margin:auto;
+    width:100%;
+    font-family:Arial,Microsoft YaHei,黑体,宋体,sans-serif !important;
+}
+
+.nav-top{
+    width:100%;
+    position:fixed;
+    top:0;
+    background-color:#ff0000;
+    height:50px;
+    margin:0;
+    padding:0;
+    border:0;
+    z-index:20;
+}
+
+.nav-top-1{
+    position:relative;
+    float:left;
+    width:20%;
+    padding:0;
+    margin:0;
+    border:0;
+    text-align:center;
+}
+
+.nav-top-1 p{
+    display:inline-block;
+    margin:10px auto;
+    font-size:22px;
+    color:#ffffff;
+}
+.ui-page{
+    margin-top:50px;
+    overflow:hidden !important;
+}
+.li-box{
+    display:flex;
+    padding:0px 10px 0px 0px;
+}
+.room-table{
+    font-family:Arial,Microsoft YaHei,黑体,宋体,sans-serif !important;
+    font-weight:500 !important;
+    flex-grow:1;
+    font-size:18px !important;
+}
+.state{
+    font-family:Arial,Microsoft YaHei,黑体,宋体,sans-serif !important;
+    font-weight:600 !important;
+    font-size:20px !important;
+    color:#ff0000;
+}
+.confirm-active {
+    opacity:0.1
+}
+.hide{
+    display:none;
+}
+.nav-top-2{
+    width: 30%;
+    float: right;
+    margin-right: 20px;
+    overflow: hidden;
+    height: 50px;
+}
+.ui-select{
+    margin:0;
+}
+#ddlWaiter-button{
+    height: 50px;
+    border-radius: 0;
+    background-color: red !important;
+    border: 0;
+}
+#ddlWaiter-button span{
+    color:white;
+}

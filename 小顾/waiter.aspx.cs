@@ -9,11 +9,31 @@ public partial class waiter : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            WaiterBind();
+            ServiceBind();
+            waiterid.InnerText = ddlWaiter.SelectedValue;
+        }
     }
-
-    protected void ddlCook_SelectedIndexChanged(object sender, EventArgs e)
+    public void WaiterBind()
     {
-
+        ddlWaiter.DataSource = data.DataTable("select * from waiter where position=1");
+        ddlWaiter.DataTextField = "name";
+        ddlWaiter.DataValueField = "id";
+        ddlWaiter.DataBind();
+    }
+    public void ServiceBind()
+    {
+        if (ddlWaiter.SelectedValue != "")
+        {
+            rptService.DataSource = data.DataTable("select room.name,dining_table.id,orders.id as order_id from orders,dining_table,room where waiter_id=" + ddlWaiter.SelectedValue + " and state = 1 and orders.dining_table_id=dining_table.id and dining_table.room_id=room.id");
+            rptService.DataBind();
+        }
+    }
+    protected void ddlWaiter_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ServiceBind();
+        waiterid.InnerText = ddlWaiter.SelectedValue;
     }
 }
