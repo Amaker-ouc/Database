@@ -13,7 +13,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             if (Session["adminAccount"] == null)
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect("login.aspx");               
+            }
+            else
+            {
+                string power = data.DataTable("select * from admins where account=N'" + Session["adminAccount"].ToString() + "'").Rows[0]["power"].ToString();
+                if (power != "1")
+                {
+                    aAdmins.Visible = false;
+                    aAdmins2.Visible = false;
+                }
             }
         }
         labAdminName.InnerText = Session["adminAccount"].ToString();

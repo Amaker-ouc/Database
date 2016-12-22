@@ -19,7 +19,7 @@
                     <tr>
                       <th>姓名</th>
                       <th>签到</th>
-                      <th>状态</th>
+                      <th>分配</th>
                     </tr>
              
           </HeaderTemplate>
@@ -57,7 +57,7 @@
                     <tr>
                       <th>姓名</th>
                       <th>签到</th>
-                      <th>状态</th>
+                      <th>分配</th>
                     </tr>
              
           </HeaderTemplate>
