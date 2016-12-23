@@ -8,12 +8,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="//cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="//cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="//fast.eager.io/7EYceZSwNz.js"></script>
+    <!--<link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
+    <link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <!--<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>-->
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <!--<script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    <script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!--<link rel="stylesheet" href="//cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!--<script src="//cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="//fast.eager.io/7EYceZSwNz.js"></script>-->
+    <script src="js/load.js"></script>
     <link rel="stylesheet" href="css/waiter.css" />
     <title>小顾</title>
 </head>
@@ -25,6 +31,7 @@
                 <p><strong>服务员</strong></p>
             </div>
             <div class="nav-top-2">
+                <button class="sign-in">签到</button>
                 <asp:DropDownList runat="server" ID="ddlWaiter" OnSelectedIndexChanged="ddlWaiter_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 <span id="waiterid" runat="server" style="display:none"></span>
             </div>

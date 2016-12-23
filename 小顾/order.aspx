@@ -11,12 +11,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="//cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="//cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="//fast.eager.io/7EYceZSwNz.js"></script>
+    <!--<link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css" />-->
+    <link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+    <!--<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>-->
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <!--<script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    <script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!--<link rel="stylesheet" href="//cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!--<script src="//cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="//fast.eager.io/7EYceZSwNz.js"></script>-->
+    <script src="js/load.js"></script>
     <link rel="stylesheet" href="css/newstyle3.css" />
     <title>小顾</title>
 </head>
@@ -36,10 +42,6 @@
             <div style="position: relative">
                 <div data-role="collapsible" data-collapsed="false">
                     <h4>选菜</h4>
-                    <div role="banner" class="ui-header ui-bar-a  slidedown">
-                        <h1 class="ui-title" role="heading" aria-level="1">全选</h1>
-                        <a id="delete-all" href="#" data-icon="delete" data-iconpos="notext" class="ui-link ui-btn-right ui-btn ui-icon-delete ui-btn-icon-notext ui-shadow ui-corner-all" data-role="button" role="button"></a>
-                    </div>
                     <div id="list-all" role="main" class="ui-content order-list">
                         <ul id="list" class="touch ui-listview order-list-ul" data-role="listview" data-icon="false" data-split-icon="delete">
                             <asp:Repeater runat="server" ID="rptOrder" >
@@ -79,6 +81,7 @@
                             </asp:Repeater>
                         </ul>
                     </div>
+                    <span id="tips"></span>
                 </div>
                 <!-- /content -->
                 <div style="display: none;" id="confirm-placeholder">

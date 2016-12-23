@@ -339,6 +339,13 @@ $(document).on("pagecreate", "#page-order", function () {
     })
     $("#ddlRoom-button").removeClass("ui-shadow"); 
     $("#ddlTable-button").removeClass("ui-shadow");
-
-
+    if (!$("li").length > 0) {
+        $("#list-all").remove();
+        $("#tips").text("这里空空如也~");
+        $("#tips").css({
+            "margin": "5px auto 5px auto",
+            "text-align":"center",
+            "display":"block"
+        });
+    }
 });
