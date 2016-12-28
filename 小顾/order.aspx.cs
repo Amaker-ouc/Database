@@ -69,30 +69,44 @@ public partial class order : System.Web.UI.Page
                 if (data.DataTable("select isUse from dining_table where id=" + ddlTable.SelectedValue).Rows[0][0].ToString() == "0")
                 {
                     DateTime date = DateTime.Now;
-                    string waiter_id = data.DataTable("select * from waiter where position=1 and sign_in=1 order by allocation").Rows[0]["id"].ToString();
-                    string insert = "insert into orders(dining_table_id,order_time,waiter_id) values('" + ddlTable.SelectedValue + "',N'" + date +"',N'" + waiter_id + "')";
-                    data.OperateLine(insert);
-                    string update = "update dining_table set isUse=1 where id=" + ddlTable.SelectedValue;
-                    data.OperateLine(update);
-                    string update2 = "update waiter set allocation=allocation+1 where id=" + waiter_id;
-                    data.OperateLine(update2);
-                    for (int i = 0; i < orders.Count; i++)
+                    if (data.DataTable("select * from waiter where position=1 and sign_in=1 order by allocation").Rows.Count >= 0)
                     {
-                        string order_id = data.DataTable("select * from orders order by id desc").Rows[0]["id"].ToString();
-                        string cook_id = data.DataTable("select * from cook where food_type_id='" + orders[i].Type_id + "' and sign_in=1 order by allocation").Rows[0]["id"].ToString();
-                        string insert2 = "insert into food_orders (food_id,orders_id,cook_id) values('" + orders[i].Id + "','" + order_id + "','" + cook_id + "')";
-                        for (int j = 0; j < orders[i].Num; j++)
+                        string waiter_id = data.DataTable("select * from waiter where position=1 and sign_in=1 order by allocation").Rows[0]["id"].ToString();
+                        string insert = "insert into orders(dining_table_id,order_time,waiter_id) values('" + ddlTable.SelectedValue + "',N'" + date + "',N'" + waiter_id + "')";
+                        data.OperateLine(insert);
+                        string update = "update dining_table set isUse=1 where id=" + ddlTable.SelectedValue;
+                        data.OperateLine(update);
+                        string update2 = "update waiter set allocation=allocation+1 where id=" + waiter_id;
+                        data.OperateLine(update2);
+                        for (int i = 0; i < orders.Count; i++)
                         {
-                            data.OperateLine(insert2);
+                            string order_id = data.DataTable("select * from orders order by id desc").Rows[0]["id"].ToString();
+                            if (data.DataTable("select * from cook where food_type_id='" + orders[i].Type_id + "' and sign_in=1 order by allocation").Rows.Count >= 0)
+                            {
+                                string cook_id = data.DataTable("select * from cook where food_type_id='" + orders[i].Type_id + "' and sign_in=1 order by allocation").Rows[0]["id"].ToString();
+                                string insert2 = "insert into food_orders (food_id,orders_id,cook_id) values('" + orders[i].Id + "','" + order_id + "','" + cook_id + "')";
+                                for (int j = 0; j < orders[i].Num; j++)
+                                {
+                                    data.OperateLine(insert2);
+                                }
+                                string update3 = "update cook set allocation=allocation+" + orders[i].Num.ToString() + " where id =" + cook_id;
+                                data.OperateLine(update3);
+                            }
+                            else
+                            {
+                                ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('未有厨师签到');</script>");
+                                break;
+                            }
                         }
-                        string update3 = "update cook set allocation=allocation+" + orders[i].Num.ToString() + " where id =" + cook_id;
-                        data.OperateLine(update3);
+                        List<Order> orders2 = new List<Order>();
+                        Session["orders"] = orders2;
+                        ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('下单成功');</script>");
+                        sumPrice.InnerText = "0.00";
+                        OrderBind();
+                        TableBind();
                     }
-                    List<Order> orders2 = new List<Order>();
-                    Session["orders"] = orders2;
-                    ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('下单成功');</script>");
-                    OrderBind();
-                    TableBind();
+                    else
+                        ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('未有服务员签到');</script>");
                 }
                 else
                     ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('餐桌已用');</script>");

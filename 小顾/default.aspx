@@ -31,7 +31,7 @@
                     <p><strong>小顾</strong></p>
                 </div>
                 <div class="nav-top-2">
-                    <input type="search" placeholder="搜索喜欢的美食吧" />
+                    <input type="search" placeholder="搜索喜欢的美食吧" runat="server" id="txtFood"/>
                 </div>
                 <div class="nav-top-3">
                     <asp:LinkButton runat="server" ID="lbtfind" OnClick="lbtfind_Click"><img src="img/search-ico.png" /></asp:LinkButton>

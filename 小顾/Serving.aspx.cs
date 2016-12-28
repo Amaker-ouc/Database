@@ -14,7 +14,7 @@ public partial class Serving : System.Web.UI.Page
         string select = "select food_orders.id as food_order_id, food.name as food_name,room.name as room_name,dining_table.id as dining_table_id from orders,food_orders,food,room,dining_table where orders.waiter_id="
             +waiter_id+" and food_orders.orders_id=orders.id and food_orders.food_id=food.id and orders.dining_table_id=dining_table.id and dining_table.room_id=room.id and food_orders.state=1";
         DataTable dt= data.DataTable(select);
-        if (dt.Rows[0]["food_name"].ToString() != "")
+        if (dt.Rows.Count != 0)
         {
             string food_name = dt.Rows[0]["food_name"].ToString();
             string room_name = dt.Rows[0]["room_name"].ToString();

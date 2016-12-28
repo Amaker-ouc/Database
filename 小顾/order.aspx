@@ -135,7 +135,7 @@
                 </div>
             </div>
             <div class="confirm-buy">
-                <p class="sum-price"><span>￥</span><span runat="server" id="sumPrice">100.00</span></p>
+                <p class="sum-price"><span>￥</span><span runat="server" id="sumPrice">0.00</span></p>
                 <asp:LinkButton runat="server" ID="lbtOrder" CssClass="ui-btn ui-btn-a buy" OnClick="lbtOrder_Click">下单</asp:LinkButton>
             </div>
             <div class="row nav-bottom clearfix text-center">

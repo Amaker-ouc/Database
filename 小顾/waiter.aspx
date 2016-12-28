@@ -31,7 +31,7 @@
                 <p><strong>服务员</strong></p>
             </div>
             <div class="nav-top-2">
-                <button class="sign-in">签到</button>
+                <asp:Button CssClass="sign-in" runat="server" id="btnSin" Text="签到" OnClick="btnSin_Click"/>
                 <asp:DropDownList runat="server" ID="ddlWaiter" OnSelectedIndexChanged="ddlWaiter_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 <span id="waiterid" runat="server" style="display:none"></span>
             </div>
@@ -40,7 +40,7 @@
         </div>
         <div id="list-all" role="main" class="ui-content list">
             <ul id="list" class="touch ui-listview order-list-ul" data-role="listview" data-icon="false" data-split-icon="delete">
-                <asp:Repeater runat="server" ID="rptService">
+                <asp:Repeater runat="server" ID="rptService" OnItemCommand="rptService_ItemCommand">
                     <HeaderTemplate></HeaderTemplate>
                     <ItemTemplate>
                         <li class="ui-li-has-alt ui-first-child">

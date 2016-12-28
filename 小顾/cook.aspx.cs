@@ -33,4 +33,15 @@ public partial class cook : System.Web.UI.Page
         FoodBind();
         cookid.InnerText = ddlCook.SelectedValue;
     }
+    protected void rptFinish_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+
+    }
+    protected void btnSin_Click(object sender, EventArgs e)
+    {
+        string id = ddlCook.SelectedValue;
+        string update = "update cook set sign_in=1 where id=" + id;
+        data.OperateLine(update);
+        ClientScript.RegisterStartupScript(this.GetType(), "", "<script>alert('签到成功');</script>");        
+    }
 }

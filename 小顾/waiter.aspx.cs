@@ -36,4 +36,14 @@ public partial class waiter : System.Web.UI.Page
         ServiceBind();
         waiterid.InnerText = ddlWaiter.SelectedValue;
     }
+    protected void rptService_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+
+    }
+    protected void btnSin_Click(object sender, EventArgs e)
+    {
+        string id = ddlWaiter.SelectedValue;
+        string update = "update waiter set sign_in=1 where id=" + id;
+        data.OperateLine(update);
+    }
 }
